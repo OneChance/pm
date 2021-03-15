@@ -153,11 +153,7 @@ export default {
         setActive(path) {
             let appMenu = this.$root.loginUser.menus.filter(m => m.url === '/index/app')[0]
             let sysMenu = this.$root.loginUser.menus.filter(m => m.url === '/index/sys')[0]
-            if (path === '/index' || path === '/index/' || path === '/index/app' || path === '/index/app/') {
-                if (appMenu) {
-                    this.$router.push(appMenu.childrens[0].url).catch(err => err);
-                }
-            } else if (path === '/index/sys' || path === '/index/sys/') {
+            if (path === '/index' || path === '/index/' || path === '/index/sys' || path === '/index/sys/') {
                 if (sysMenu) {
                     this.$router.push(sysMenu.childrens[0].url).catch(err => err);
                 }

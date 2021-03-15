@@ -2,7 +2,7 @@
     <el-container>
         <el-aside>
             <el-menu
-                :default-active="activeIndex"
+                :default-active="$route.path"
                 class="el-menu-vertical-demo my-menu left-menu"
                 text-color="#303133"
                 active-text-color="#347dd6"
@@ -64,13 +64,7 @@ export default {
         menus: function (newVal) {
             this.oneLevelMenu = newVal.filter(menu => menu.childrens === null)
             this.MultiLevelMenu = newVal.filter(menu => menu.childrens !== null)
-            setTimeout(() => {
-                this.setActive(this.$route.path)
-            }, 10)
         },
-        $route(route) {
-            this.setActive(route.path)
-        }
     },
     mounted: function () {
 
@@ -81,17 +75,6 @@ export default {
                 this.isCollapse = !this.isCollapse
             }
         },
-        setActive(path) {
-            if (path.indexOf('sample') !== -1) {
-                this.activeIndex = '/index/app/samplebanks'
-            } else if (path.indexOf('question') !== -1) {
-                this.activeIndex = '/index/app/questionbanks'
-            } else if (path.indexOf('duty') !== -1 || path.indexOf('opentime') !== -1) {
-                this.activeIndex = '/index/app/lab'
-            } else {
-                this.activeIndex = path
-            }
-        }
     },
     components: {}
 }

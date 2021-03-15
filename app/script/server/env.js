@@ -1,3 +1,3 @@
 export default {
-    baseURL: 'http://pm.ceeg.cn/',
+    baseURL: 'http://pm.ceeg.cn/api',
 };

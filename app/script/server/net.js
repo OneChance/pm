@@ -32,9 +32,9 @@ export default {
 
 const _getToken = function () {
     //获取token
-    let token = localStorage.getItem('token');
+    let token = localStorage.getItem('pm_token');
     if (!token) {
-        token = App.vueG.$cookie.get('token')
+        token = App.vueG.$cookie.get('pm_token')
     }
     if (!token) {
         token = '';

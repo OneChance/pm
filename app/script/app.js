@@ -9,12 +9,14 @@ import Print from '../plugin/print/print'
 import preview from 'vue-photo-preview'
 import 'vue-photo-preview/dist/skin.css'
 import dayjs from 'dayjs'
+import _ from 'lodash'
 
 //路由模块
 import Sign from '../components/Sign.vue';
 import Index from '../components/Index.vue';
 import SysRole from "../components/sys/SysRole";
 import SysUser from "../components/sys/SysUser";
+import SysComponent from "../components/SysComponent";
 
 //网络工具
 axios.defaults.withCredentials = true;
@@ -35,6 +37,9 @@ Vue.use(VueRouter);
 //日期插件
 Vue.prototype.dayjs = dayjs
 
+//lodash
+Vue.prototype._ = _
+
 //消除重复路由控制台错误提示
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
@@ -54,6 +59,16 @@ export default {
                 {
                     path: '/index',
                     component: Index,
+                    children: [
+                        {
+                            path: 'sys',
+                            component: SysComponent,
+                            children: [
+                                {path: 'user', component: SysUser},
+                                {path: 'role', component: SysRole},
+                            ]
+                        },
+                    ]
                 },
             ];
 

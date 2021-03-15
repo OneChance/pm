@@ -193,10 +193,8 @@ export default {
             comp.list({page: 1})
         },
         list(config) {
-            let data = Common.copyObject(Config.page)
-            for (let prop in config) {
-                data[prop] = config[prop]
-            }
+            let data = this._.assign(Config.page, config)
+            console.log(data)
             this.tableConfig.currentPage = data.page
             data.type = 'TEACHER';
             data.login = true

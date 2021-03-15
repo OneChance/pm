@@ -301,10 +301,8 @@ export default {
             this.list({page: val})
         },
         list(config) {
-            let data = Common.copyObject(Config.page)
-            for (let prop in config) {
-                data[prop] = config[prop]
-            }
+            let data = this._.assign(Config.page, config)
+            console.log(data)
             this.tableConfig.currentPage = data.page
             Role.getRoles(data).then(res => {
                 //如果以后多选框,清除所选数据

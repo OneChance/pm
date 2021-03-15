@@ -8,7 +8,7 @@ module.exports = merge(common, {
     mode: 'development',
     devtool: 'eval-cheap-source-map',
     devServer: {
-        port: 8888,
+        port: 8891,
         disableHostCheck: true,
         compress: true,
         hot: true,
@@ -16,7 +16,7 @@ module.exports = merge(common, {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'js/[name].[hash].js',
-        publicPath: 'http://localhost:8888/',
+        publicPath: 'http://pm.ceeg.cn/',
         chunkFilename: 'js/[name].[hash].js'
     },
 });

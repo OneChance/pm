@@ -44,21 +44,18 @@ export default {
         signIn: function () {
             this.$refs['form'].validate((valid) => {
                 if (valid) {
-                    // Account.signIn({
-                    //     username: this.form.name,
-                    //     password: this.form.password
-                    // }).then(this.signCallback);
-                    this.signCallback({
-                        token:'test'
-                    })
+                    Account.signIn({
+                        username: this.form.name,
+                        password: this.form.password
+                    }).then(this.signCallback);
                 }
             });
         },
         signCallback: function (res) {
             if (res) {
                 //保存token
-                localStorage.setItem("token", res.token);
-                this.$cookie.set('token', res.token);
+                localStorage.setItem("pm_token", res.token);
+                this.$cookie.set('pm_token', res.token);
                 this.$router.push('index').catch(err => err)
             }
         },
